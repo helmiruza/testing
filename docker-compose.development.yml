@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: law_todo_dev
+    ports:
+      - "5432:5432"
+  api: &api
+    build: .
+    environment:
+      PROCESS_TYPE: api
+      RAILS_ENV: development
+      DB_HOSTNAME: db
+      DB_NAME: law_todo_dev
+      DB_USERNAME: postgres
+      DB_PASSWORD: password
+      SECRET_KEY_BASE: a8nSg2dWxUPenPgV
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db

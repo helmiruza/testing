@@ -1,0 +1,11 @@
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore
+docker-compose.development.yml
+clickhouse/*
+tmp/*
+log/*
+.vscode/*
+README.md
+Makefile
